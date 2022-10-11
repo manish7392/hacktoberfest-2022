@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+ 
+	int t;
+	cin>>t;
+	while(t--) {
+	    int n;
+	    cin >> n;
+ 
+		long long x, l=1, ans=0;
+ 
+		for(int i=0; i<n; i++){
+			cin >> x;
+ 
+			if(l<=x)
+			{ 
+			    ans+=l;
+			    l++;
+			} else {
+			    ans+=x;
+			    l=x+1;
+			}
+		}
+		cout << ans << endl;
+	}
+}
