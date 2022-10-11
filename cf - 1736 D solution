@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+ 
+	int t;
+	cin>>t;
+	while(t--) {
+	    int n;
+    	cin>>n;
+    	string s;
+    	cin>>s;
+    	vector<int> a(n);
+    	
+    	int n1=n*2,w=0;
+    	for(int i=0; i<n1; i++) 
+    	    if(s[i]=='1')
+    	        w+=1;
+    	        
+    	if(w%2){
+    		cout<<"-1\n";
+    		continue;
+    	}
+    	
+    	int si=0, pre='0';
+    	for(int i=0; i<n1; i+=2){
+    		if(s[i] != s[i+1]) { 
+    			if(s[i]==pre)
+    			    a[si++]=i;
+    			else 
+    			    a[si++]=i+1;
+    			pre=pre^1;
+    		}
+    	}
+    	cout<<si<<"\n";
+    	for(int i=0;i<si;i++) 
+    	    cout<<a[i]+1<<" "; 
+    	cout<<"\n";
+    	for(int i=0;i<n;i++) 
+    	    cout<<(i<<1 | 1)<<" ";
+    	cout<<"\n";
+	}
+}
